@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mozilla/webextension-polyfill",
   "devDependencies": {
+    "browserify": "^14.0.0",
     "chai": "^3.5.0",
     "google-closure-compiler": "^20160911.0.0",
     "grunt": "^1.0.1",
@@ -31,7 +32,8 @@
     "jsdom": "^9.6.0",
     "mocha": "^3.1.0",
     "nyc": "^8.3.1",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "webpack": "^2.2.1"
   },
   "nyc": {
     "reporter": ["lcov", "text", "html"],
@@ -41,6 +43,7 @@
     "build": "grunt",
     "test": "mocha",
     "test-coverage": "COVERAGE=y nyc mocha",
+    "posttest": "test/bundler.sh",
     "publish-coverage": "grunt coveralls",
     "prepublish": "npm run build"
   }
